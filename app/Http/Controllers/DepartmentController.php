@@ -15,6 +15,9 @@ class DepartmentController extends Controller
     public function index()
     {
         //
+        return view('department.index')->with([
+            'departments' => Department::all()
+            ]);
     }
 
     /**
@@ -47,6 +50,9 @@ class DepartmentController extends Controller
     public function show(Department $department)
     {
         //
+        return view('department.show')->with([
+            'department' => $department
+            ]);
     }
 
     /**
