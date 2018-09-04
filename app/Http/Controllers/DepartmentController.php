@@ -64,6 +64,9 @@ class DepartmentController extends Controller
     public function edit(Department $department)
     {
         //
+        return view('department.edit')->with([
+            'department' => $department
+            ]);
     }
 
     /**
@@ -76,6 +79,7 @@ class DepartmentController extends Controller
     public function update(Request $request, Department $department)
     {
         //
+        $department->update($request->all());
     }
 
     /**
