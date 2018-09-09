@@ -2,24 +2,24 @@
 @section('content')
 <div class="row">
     <div class="col-md-12">
-        @if ($departments->isNotEmpty())
+        @if ($reports->isNotEmpty())
         <table class="table">
             <thead class="thead-dark">
                 <tr>
                 <th scope="col">#</th>
-                <th scope="col">Departamento</th>
+                <th scope="col">Reportes</th>
                 </tr>
             </thead>
             <tbody>
-            @foreach($departments as $department)
+            @foreach($reports as $report)
                 <tr>
-                <th scope="row"><a href="{{route('departments.show', $department)}}">{{$department->id}}</a></th>
-                <td>{{$department->department}}</td>
+                <th scope="row"><a href="{{route('reports.show', $report)}}">{{$report->id}}</a></th>
+                <td>{{$report->report}}</td>
                 <td>
-                    <a href="{{ route('departments.show', $department->id) }}" class="btn btn-info">
+                    <a href="{{ route('reports.show', $report->id) }}" class="btn btn-info">
                         Ver
                     </a>
-                    <a href="{{ route('departments.edit', $department->id) }}" class="btn btn-primary">
+                    <a href="{{ route('reports.edit', $report->id) }}" class="btn btn-primary">
                         Editar
                     </a>
                 </td>
@@ -28,7 +28,7 @@
             </tbody>
         </table>
             @else 
-                <p> No hay departamentos registrados</p>
+                <p> No hay reportes registrados</p>
             @endif   
     </div>
 </div>

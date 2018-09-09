@@ -2,8 +2,7 @@
 @section('content')
 <div class="row">
     <div class="col-md-12">
-        
-            <table class="table">
+        <table class="table">
             <thead class="thead-dark">
                 <tr>
                 <th scope="col">Departamento</th>
@@ -14,7 +13,7 @@
                 <th scope="row"><h1> {{($department -> department)}}</h1></td>
                 </tr>
             </tbody>
-            </table>
+        </table>
     </div>
 </div>
 @endsection

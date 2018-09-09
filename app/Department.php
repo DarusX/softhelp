@@ -10,4 +10,9 @@ class Department extends Model
     protected $fillable = [
         'department'
     ];
+
+    public function reports()
+    {
+        return $this->hasMany(Report::class);
+    }
 }
