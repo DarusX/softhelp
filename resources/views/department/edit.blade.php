@@ -16,13 +16,15 @@
                 </div>
             </form>
         </div>
-        @if(Session::has('errors'))
-        <div class="alert alert-danger">
-        @foreach($errors->all() as $error)
-        <p>{{$error}}</p>
-        @endforeach
+        <div class="col-sm-12">
+            @if(Session::has('errors'))
+            <div class="alert alert-danger">
+                @foreach($errors->all() as $error)
+                <p>{{$error}}</p>
+                @endforeach
+            </div>
+            @endif
         </div>
-        @endif
     </div>
 </div>
 @endsection

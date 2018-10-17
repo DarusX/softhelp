@@ -43,6 +43,8 @@ class DepartmentController extends Controller
         ]);
 
         Department::create($request->all());
+
+        return redirect()->route('departments.index');
     }
 
     /**
@@ -72,9 +74,6 @@ class DepartmentController extends Controller
             'department' => $department
             ]);
 
-            $this->validate($request, [
-                'department' => 'required'
-            ]);
     }
 
     /**
@@ -87,7 +86,13 @@ class DepartmentController extends Controller
     public function update(Request $request, Department $department)
     {
         //
+        $this->validate($request, [
+            'department' => 'required'
+        ]);
+
         $department->update($request->all());
+
+        return redirect()->route('departments.index');
     }
 
     /**

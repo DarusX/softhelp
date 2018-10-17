@@ -47,6 +47,8 @@ class ReportController extends Controller
             'report' => 'required'
         ]);
         Report::create($request->all());
+
+        return redirect()->route('reports.index');
     }
 
     /**
@@ -87,7 +89,13 @@ class ReportController extends Controller
      */
     public function update(Request $request, Report $report)
     {
+        $this->validate($request, [
+            'department' => 'required'
+        ]);
+        
         $report->update($request->all());
+
+        //despues de actualizar redirige a la ruta con nombre reports.index
         return redirect()->route('reports.index');
     }
 
