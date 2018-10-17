@@ -3,11 +3,6 @@
 <div class="row">
     <div class="col-md-12">
         <table class="table">
-            <thead class="thead-dark">
-                <tr>
-                <th scope="col">Reporte</th>
-                </tr>
-            </thead>
             <tbody>
                 <tr>
                     <th>Reporte</th>

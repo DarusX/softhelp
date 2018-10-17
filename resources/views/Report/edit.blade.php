@@ -23,7 +23,7 @@
                 </div>
                 <div class="form-group">
                         <label for="">Departamento</label>
-                        <select name="department_id" id="">
+                        <select name="department_id" id="" class="form-control">
                             @foreach($departments as $department)
                             <option value="{{$department->id}}" {{($department == $report->department)?'selected':''}}>{{$department->department}}</option>
                             @endforeach

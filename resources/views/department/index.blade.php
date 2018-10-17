@@ -6,27 +6,25 @@
         <div class="col-md-12">
             @if ($departments->isNotEmpty())
             <table class="table">
-                <thead class="thead-dark">
+                <thead>
                     <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Departamento</th>
+                    <th>Departamento</th>
                     </tr>
                 </thead>
                 <tbody>
-                @foreach($departments as $department)
+                    @foreach($departments as $department)
                     <tr>
-                    <th scope="row"><a href="{{route('departments.show', $department)}}">{{$department->id}}</a></th>
-                    <td>{{$department->department}}</td>
-                    <td>
-                        <a href="{{ route('departments.show', $department->id) }}" class="btn btn-info">
-                            Ver
-                        </a>
-                        <a href="{{ route('departments.edit', $department->id) }}" class="btn btn-primary">
-                            Editar
-                        </a>
-                    </td>
+                        <td>{{$department->department}}</td>
+                        <td>
+                            <a href="{{ route('departments.show', $department->id) }}" class="btn btn-xs btn-info">
+                                Ver
+                            </a>
+                            <a href="{{ route('departments.edit', $department->id) }}" class="btn btn-xs btn-primary">
+                                Editar
+                            </a>
+                        </td>
                     </tr>
-                @endforeach
+                    @endforeach
                 </tbody>
             </table>
                 @else 
