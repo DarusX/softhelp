@@ -43,6 +43,9 @@ class ReportController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'report' => 'required'
+        ]);
         Report::create($request->all());
     }
 
@@ -70,6 +73,7 @@ class ReportController extends Controller
     {
         //
         return view('report.edit')->with([
+            'departments'=> Department::all(),
             'report' => $report
             ]);
     }
@@ -83,8 +87,8 @@ class ReportController extends Controller
      */
     public function update(Request $request, Report $report)
     {
-        //
         $report->update($request->all());
+        return redirect()->route('reports.index');
     }
 
     /**

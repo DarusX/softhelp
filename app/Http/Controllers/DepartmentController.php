@@ -38,6 +38,10 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'department' => 'required'
+        ]);
+
         Department::create($request->all());
     }
 
@@ -61,11 +65,15 @@ class DepartmentController extends Controller
      * @param  \App\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function edit(Department $department)
+    public function edit(Request $request, Department $department)
     {
         //
         return view('department.edit')->with([
             'department' => $department
+            ]);
+
+            $this->validate($request, [
+                'department' => 'required'
             ]);
     }
 
