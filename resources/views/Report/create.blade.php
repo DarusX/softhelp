@@ -32,10 +32,7 @@
                                 @endforeach
                         </select>
                 </div>
-                <div class="form-group">
-                        <label for="">Usuario</label>
-                        <input name="user_id" class="form-control" value="{{Auth::id()}}">
-                </div>
+
                 <div class="form-group">
                         <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
