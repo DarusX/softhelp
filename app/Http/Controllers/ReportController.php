@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Report;
 use App\Department;
 use Illuminate\Http\Request;
+use Auth;
 
 class ReportController extends Controller
 {
@@ -18,7 +19,7 @@ class ReportController extends Controller
         //
         return view('report.index')->with([
             'reports' => Report::all()
-            ]);
+        ]);
     }
 
     /**
@@ -44,10 +45,12 @@ class ReportController extends Controller
     {
         //
         $this->validate($request, [
-            'report' => 'required'
+            'report' => 'required',
+            'description' => 'required',
+            'priority' => 'required',
+            'department_id' => 'required'
         ]);
-        Report::create($request->all());
-
+        Auth::user()->reports()->create($request->all());
         return redirect()->route('reports.index');
     }
 
@@ -62,7 +65,7 @@ class ReportController extends Controller
         //
         return view('report.show')->with([
             'report' => $report
-            ]);
+        ]);
     }
 
     /**
@@ -77,7 +80,7 @@ class ReportController extends Controller
         return view('report.edit')->with([
             'departments'=> Department::all(),
             'report' => $report
-            ]);
+        ]);
     }
 
     /**

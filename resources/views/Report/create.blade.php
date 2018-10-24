@@ -7,34 +7,45 @@
             <form action="{{route('reports.store')}}" method="post">
                 {{csrf_field()}}
                 <div class="form-group">
-                        <label for="">Reporte</label>
-                        <input type="text" name="report" class="form-control">
+                    <label for="">Reporte</label>
+                    <input type="text" name="report" class="form-control">
                 </div>
                 <div class="form-group">
-                        <label for="">Descripción</label>
-                        <input type="text" name="description" class="form-control">
+                    <label for="">Descripción</label>
+                    <textarea name="description" rows="10" class="form-control"></textarea>
                 </div>
                 <div class="form-group">
-                        <label for="">Prioridad</label>
-                        <input type="radio" name="prioryty" class="form-group" value="Alta"> Alta
-                        <input type="radio" name="prioryty" class="form-group" value="Media"> Media
-                        <input type="radio" name="prioryty" class="form-group" value="Baja"> Baja
+                    <label for="">Prioridad</label>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="priority" value="Alta">
+                            Alta
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="priority" value="Alta" checked>
+                            Media
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="priority" value="Alta">
+                            Baja
+                        </label>
+                    </div>
                 </div>
                 <div class="form-group">
-                        <label for="">Estado</label>
-                        <input type="text" name="status" class="form-control">
-                </div>
-                <div class="form-group">
-                        <label for="">Departamento</label>
-                        <select name="department_id" class="form-control">
-                                @foreach($departments as $department)
-                                <option value="{{$department->id}}">{{$department->department}}</option>
-                                @endforeach
-                        </select>
+                    <label for="">Departamento</label>
+                    <select name="department_id" class="form-control">
+                        @foreach($departments as $department)
+                        <option value="{{$department->id}}">{{$department->department}}</option>
+                        @endforeach
+                    </select>
                 </div>
 
                 <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    <button type="submit" class="btn btn-primary">Guardar</button>
                 </div>
             </form>
         </div>
