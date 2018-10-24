@@ -1,9 +1,38 @@
 
 // Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
-
+//@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600');
 // Variables
-@import "variables";
+//@import "variables";
+$body-bg: #f5f8fa;
 
+$icon-font-path: "~bootstrap-sass/assets/fonts/bootstrap/";
+$font-family-sans-serif: 'Open Sans', sans-serif;
+$font-size-base: 14px;
+$line-height-base: 1.6;
+$text-color: #636b6f;
 // Bootstrap
+$brand-primary: #000046;
+$brand-default: #1CB5E0;
+
+$bg-primary: #1da1f2;
+$bg-secondary: #e2e2e2;
+
+$bg-primary-gradient: linear-gradient(to right, $brand-primary 0%, $brand-default 100%);
 @import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+.collapse.in{
+    background: $bg-secondary
+}
+.navbar{
+    background: $bg-primary-gradient
+}
+.panel-heading{
+    background: $bg-primary-gradient;
+    color: #fff !important;
+}
+.gradient-top{
+    height: 5px;
+    width: 100%;
+    background: $bg-primary-gradient;
+}
