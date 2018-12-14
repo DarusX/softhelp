@@ -20,9 +20,10 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resources([
-    'departments' => 'DepartmentController'
+    'departments' => 'DepartmentController',
+    'reports' => 'ReportController',
+    'messages' => 'MessageController'
 ]);
 
 Route::resources([
-    'reports' => 'ReportController'
 ]);
