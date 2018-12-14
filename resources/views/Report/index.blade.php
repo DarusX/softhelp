@@ -18,10 +18,10 @@
                         <td><a href="{{route('reports.show', $report)}}">{{$report->report}}</a></td>
                         <td>
                             <a href="{{ route('reports.show', $report) }}" class="btn btn-xs btn-info">
-                                Ver
+                                    <i class="far fa-eye"></i> Ver
                             </a>
                             <a href="{{ route('reports.edit', $report) }}" class="btn btn-xs btn-primary">
-                                Editar
+                                    <i class="far fa-edit"></i> Editar
                             </a>
                         </td>
                     </tr>

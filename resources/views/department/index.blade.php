@@ -17,10 +17,10 @@
                         <td>{{$department->department}}</td>
                         <td>
                             <a href="{{ route('departments.show', $department->id) }}" class="btn btn-xs btn-info">
-                                Ver
+                                    <i class="far fa-eye"></i> Ver
                             </a>
                             <a href="{{ route('departments.edit', $department->id) }}" class="btn btn-xs btn-primary">
-                                Editar
+                                    <i class="far fa-edit"></i> Editar
                             </a>
                         </td>
                     </tr>
