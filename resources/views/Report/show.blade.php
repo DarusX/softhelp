@@ -1,71 +1,41 @@
--@extends('layouts.app')
+@extends('layouts.app')
 @section('content')
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <th>Reporte</th>
-                        <th>Descripcion</th>
-                        <th>Prioridad</th>
-                        <th>Estado</th>
-                        <th>Usuario</th>
-                        <th>Departamento</th>
-                    </tr>
-                    <tr>
-                        <td scope="row">{{($report -> report)}}</td>
-                        <td> {{($report -> description)}}</td>
-                        <td> {{($report -> priority)}}</td>
-                        <td> {{($report -> status)}}</td>
-                        <td> {{($report -> user -> name)}}</td>
-                        <td> {{($report -> department -> department)}}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="jumbotron">
+                <h1 class="display-4">{{($report -> report)}}</h1>
+                <span class="badge badge-primary">{{$report->priority}}</span>
+                <span class="badge badge-primary">{{$report->status}}</span>
+                <span class="badge badge-primary">{{$report->user->name}}</span>
+                <span class="badge badge-primary">{{$report->department->departmente}}</span>
+                <br>
+                <br>
+                <a href="" class="btn btn-sm btn-success">Finalizar</a>
+                <hr class="my-4">
+                <p>{{($report -> description)}}</p>
+            </div>
         </div>
         <div class="col-md-3">
             <form action="{{route('messages.store')}}" method="post">
                 {{csrf_field()}}
-                <div class="form-group">
-                    <label for="">Message</label>
-                    <input name="message" rows="10" class="form-control">
-                </div>
-
-                <div class="form-group">
-                    <input type="hidden" name="report_id" class="form-control" value="{{$report->id}}">
-                </div>
-
-                <div class="form-group">
-                    <input type="hidden" name="user_id" class="form-control" value="{{Auth::id()}}">
-                </div>
-
-                <div class="form-group">
-                    <input type="hidden" name="message_id" class="form-control" value="">
-                </div>
-
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">
-                            <i class="far fa-envelope"></i> Enviar
-                    </button>
+                <input type="hidden" name="report_id" class="form-control" value="{{$report->id}}">
+                <input type="hidden" name="user_id" class="form-control" value="{{Auth::id()}}">
+                <div class="input-group">
+                    <input type="text" class="form-control" name="message">
+                    <span class="input-group-btn">
+                        <button class="btn btn-primary" type="submit"><i class="far fa-envelope"></i></button>
+                    </span>
                 </div>
             </form>
         </div>
-
         <div class="container-fluid">
             <div class="col-md-12">
                 @foreach($report->messages as $message)
                 <div class="media">
-                    <div class="media-left">
-                        <a href="#">
-                            <!-- ¬¬  khaaa?-->
-                            <img src="{{asset('rsc/user.png')}}" alt="" width="50" height="50">
-                        </a>
-                    </div>
                     <div class="media-body">
-                        <p>
-                            {{($message -> message)}}
-                        </p>
+                        <h4 class="media-heading">{{$message->user->name}}</h4>
+                        <p>{{$message->message}}</p>
                     </div>
                 </div>
                 @endforeach

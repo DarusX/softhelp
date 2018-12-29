@@ -16,9 +16,11 @@
                         <input type="text" name="description" class="form-control" value="{{($report -> description)}}">
                 </div>
                 <div class="form-group">
+                        <label for="">Prioridad</label>
                         <input type="enum" name="priority" class="form-control" value="{{$report -> priority}}">
                 </div>
                 <div class="form-group">
+                        <label for="">Estado</label>
                         <input type="enum" name="status" class="form-control" value="{{$report -> status}}">
                 </div>
                 <div class="form-group">
