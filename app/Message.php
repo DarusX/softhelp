@@ -16,13 +16,13 @@ class Message extends Model
         return $this->belongsTo(User::class);
     }
 
-    public function reports()
+    public function report()
     {
         return $this->belongsTo(Report::class);
     }
     
     public function messages()
     {
-        return $this->belongsTo(Message::class);
+        return $this->hasMany(Message::class);
     }
 }

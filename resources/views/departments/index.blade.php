@@ -4,24 +4,24 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            @if ($reports->isNotEmpty())
+            @if ($departments->isNotEmpty())
             <table class="table">
                 <thead>
                     <tr>
-                        <th>Reportes</th>
+                        <th>Departamento</th>
                         <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($reports as $report)
+                    @foreach($departments as $department)
                     <tr>
-                        <td><a href="{{route('reports.show', $report)}}">{{$report->report}}</a></td>
+                        <td>{{$department->department}}</td>
                         <td>
-                            <a href="{{ route('reports.show', $report) }}" class="btn btn-xs btn-info">
-                                    <i class="far fa-eye"></i> Ver
+                            <a href="{{ route('departments.show', $department->id) }}" class="btn btn-xs btn-info">
+                                <i class="far fa-eye"></i> Ver
                             </a>
-                            <a href="{{ route('reports.edit', $report) }}" class="btn btn-xs btn-primary">
-                                    <i class="far fa-edit"></i> Editar
+                            <a href="{{ route('departments.edit', $department->id) }}" class="btn btn-xs btn-primary">
+                                <i class="far fa-edit"></i> Editar
                             </a>
                         </td>
                     </tr>
@@ -29,7 +29,7 @@
                 </tbody>
             </table>
             @else
-            <p> No hay reportes registrados</p>
+            <p> No hay departamentos registrados</p>
             @endif
         </div>
     </div>

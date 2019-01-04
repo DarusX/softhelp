@@ -18,7 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::prefix('/reports')->group(function(){
+    Route::get('{report}/finish', 'ReportController@finish')->name('reports.finish');
+    Route::get('{report}/working', 'ReportController@working')->name('reports.working');
+});
 Route::resources([
     'departments' => 'DepartmentController',
     'reports' => 'ReportController',

@@ -17,7 +17,7 @@ class ReportController extends Controller
     public function index()
     {
         //
-        return view('report.index')->with([
+        return view('reports.index')->with([
             'reports' => Report::all()
         ]);
     }
@@ -30,7 +30,7 @@ class ReportController extends Controller
     public function create()
     {
         //
-        return view('report.create')->with([
+        return view('reports.create')->with([
             'departments' => Department::all()
         ]);
     }
@@ -63,7 +63,7 @@ class ReportController extends Controller
     public function show(Report $report)
     {
         //
-        return view('report.show')->with([
+        return view('reports.show')->with([
             'report' => $report
         ]);
     }
@@ -77,7 +77,7 @@ class ReportController extends Controller
     public function edit(Report $report)
     {
         //
-        return view('report.edit')->with([
+        return view('reports.edit')->with([
             'departments'=> Department::all(),
             'report' => $report
         ]);
@@ -111,5 +111,17 @@ class ReportController extends Controller
     public function destroy(Report $report)
     {
         //
+    }
+
+    public function finish(Report $report)
+    {
+        $report->update(['status' => 'Finalizado']);
+        return back();
+    }
+
+    public function working(Report $report)
+    {
+        $report->update(['status' => 'Trabajando']);
+        return back();
     }
 }

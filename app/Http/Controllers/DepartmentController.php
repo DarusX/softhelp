@@ -15,7 +15,7 @@ class DepartmentController extends Controller
     public function index()
     {
         //
-        return view('department.index')->with([
+        return view('departments.index')->with([
             'departments' => Department::all()
             ]);
     }
@@ -27,7 +27,7 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        return view('department.create');
+        return view('departments.create');
     }
 
     /**
@@ -39,7 +39,7 @@ class DepartmentController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'department' => 'required'
+            'departments' => 'required'
         ]);
 
         Department::create($request->all());
@@ -56,7 +56,7 @@ class DepartmentController extends Controller
     public function show(Department $department)
     {
         //
-        return view('department.show')->with([
+        return view('departments.show')->with([
             'department' => $department
             ]);
     }
@@ -70,7 +70,7 @@ class DepartmentController extends Controller
     public function edit(Request $request, Department $department)
     {
         //
-        return view('department.edit')->with([
+        return view('departments.edit')->with([
             'department' => $department
             ]);
 

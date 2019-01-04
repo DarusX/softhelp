@@ -24,13 +24,13 @@
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="priority" value="Alta" checked>
+                            <input type="radio" name="priority" value="Media" checked>
                             Media
                         </label>
                     </div>
                     <div class="radio">
                         <label>
-                            <input type="radio" name="priority" value="Alta">
+                            <input type="radio" name="priority" value="Baja">
                             Baja
                         </label>
                     </div>
