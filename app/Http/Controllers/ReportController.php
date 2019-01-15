@@ -62,7 +62,7 @@ class ReportController extends Controller
      */
     public function show(Report $report)
     {
-        //
+        $this->authorize('view', $report);
         return view('reports.show')->with([
             'report' => $report
         ]);
@@ -110,7 +110,7 @@ class ReportController extends Controller
      */
     public function destroy(Report $report)
     {
-        //
+        $report->delete();
     }
 
     public function finish(Report $report)

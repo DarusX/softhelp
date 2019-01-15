@@ -21,9 +21,9 @@ class CreateMessagesTable extends Migration
             $table->unsignedInteger('message_id')->nullable();
             $table->timestamps();
             
-            $table->foreign('report_id')->references('id')->on('reports');
+            $table->foreign('report_id')->references('id')->on('reports')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('message_id')->references('id')->on('messages');
+            $table->foreign('message_id')->references('id')->on('messages')->onDelete('cascade');
         });
     }
 

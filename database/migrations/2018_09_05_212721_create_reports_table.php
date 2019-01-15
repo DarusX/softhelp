@@ -20,10 +20,11 @@ class CreateReportsTable extends Migration
             $table->enum('priority', ['Baja', 'Media', 'Alta'])->default('Media');
             $table->enum('status', ['En espera', 'Trabajando', 'Finalizado']);
             $table->unsignedInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedInteger('department_id');
-            $table->foreign('department_id')->references('id')->on('departments');
             $table->timestamps();
+            
+            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('department_id')->references('id')->on('departments');
         });
     }
 
