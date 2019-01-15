@@ -34,6 +34,9 @@
                     @endforeach
                 </tbody>
             </table>
+            <a href="{{ route('reports.create', $report) }}" class="btn btn-xs btn-primary">
+                <i class="fas fa-plus"></i>     Añadir Nuevo Reporte
+            </a>
             @else
             <p> No hay reportes registrados</p>
             @endif
